@@ -372,13 +372,13 @@ process (MONO,ak4499,chipaddr) begin
 				invr1 <= '0';
 				mono2 <= '1';
 				sellr2 <= '0';
-				invl2 <= '0';
-				invr2 <= '0';
+				invl2 <= '1';
+				invr2 <= '1';
 			else
 				mono1 <= '1';
 				sellr1 <= '1';
-				invl1 <= '0';
-				invr1 <= '0';
+				invl1 <= '1';
+				invr1 <= '1';
 				mono2 <= '1';
 				sellr2 <= '1';
 				invl2 <= '0';
@@ -456,7 +456,7 @@ process(regaddrcnt,DIF2,DIF1,DIF0,rstdp,SD,DEM1,DEM0,SMUTE,
 		regd(4) <= '0';
 		regd(3) <= '0';	--_/GC2
 		regd(2) <= '0';	--_/GC1
-		regd(1) <= '0';	--_/GC0
+		regd(1) <= '1';	--_/GC0
 		regd(0) <= '0';	--SYNCE
 	elsif(regaddrcnt = Sound_Control) then
 		regd(7) <= '0';

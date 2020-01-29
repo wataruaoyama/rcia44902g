@@ -53,12 +53,13 @@ signal next_state: states;
 
 constant ak4490_stereo : std_logic_vector(11 downto 0) := "001001100000";
 constant ak4490_mono : std_logic_vector(11 downto 0) := "010011000000";
---constant ak4497_stereo : std_logic_vector(11 downto 0) := "010101100000";	-- 1376
---constant ak4497_mono : std_logic_vector(11 downto 0) := "101011000000";		-- 2752
-constant ak4497_stereo : std_logic_vector(11 downto 0) := "001111100000";	-- 992
-constant ak4497_mono : std_logic_vector(11 downto 0) := "011111000000";		-- 1984
+constant ak4497_stereo : std_logic_vector(11 downto 0) := "010101100000";	-- 1376
+constant ak4497_mono : std_logic_vector(11 downto 0) := "101011000000";		-- 2752
+--constant ak4497_stereo : std_logic_vector(11 downto 0) := "001111100000";	-- 992
+--constant ak4497_mono : std_logic_vector(11 downto 0) := "011111000000";		-- 1984
 constant regaddr_ak4490 : std_logic_vector(4 downto 0) := "01001";
-constant regaddr_ak4497 : std_logic_vector(4 downto 0) := "01111";
+--constant regaddr_ak4497 : std_logic_vector(4 downto 0) := "01111";
+constant regaddr_ak4497 : std_logic_vector(4 downto 0) := "10101";
 constant regaddr_zero : std_logic_vector(4 downto 0) := "00000";
 
 -- Register address
@@ -564,7 +565,7 @@ process(regaddrcnt,DIF2,DIF1,DIF0,rstdp,SD,DEM1,DEM0,SMUTE,
 		regd(1) <= '0';
 		regd(0) <= '0';
 	elsif(regaddrcnt = DFS_read) then
-		regd(7) <= '0';	--ADPE
+		regd(7) <= '1';	--ADPE
 		regd(6) <= '0';	--ADPT1
 		regd(5) <= '0';	--ADPT0
 		regd(4) <= '0';
